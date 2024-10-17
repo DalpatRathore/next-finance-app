@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,18 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body
+          className={`grid grid-rows-[auto_1fr_auto] w-full min-h-screen ${inter.className}`}
+        >
+          <section className="w-full">
+            <Header></Header>
+          </section>
+
+          <main className="w-full h-full">{children}</main>
+          <section className="w-full">
+            <Footer></Footer>
+          </section>
+        </body>
       </html>
     </ClerkProvider>
   );
