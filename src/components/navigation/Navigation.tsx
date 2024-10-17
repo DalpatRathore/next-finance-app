@@ -1,14 +1,12 @@
 "use client";
 import { navRoutes } from "@/constants/navRoutes";
 import React, { useState } from "react";
-import NavButton from "./NavButton";
 import { usePathname, useRouter } from "next/navigation";
-
 import { useMedia } from "react-use";
-
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { MenuIcon } from "lucide-react";
+import NavButton from "./NavButton";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
