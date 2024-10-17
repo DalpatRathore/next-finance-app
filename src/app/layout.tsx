@@ -5,6 +5,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,14 +25,21 @@ export default function RootLayout({
         <body
           className={`grid grid-rows-[auto_1fr_auto] w-full min-h-screen ${inter.className}`}
         >
-          <section className="w-full">
-            <Header></Header>
-          </section>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <section className="w-full">
+              <Header></Header>
+            </section>
 
-          <main className="w-full h-full">{children}</main>
-          <section className="w-full">
-            <Footer></Footer>
-          </section>
+            <main className="w-full h-full">{children}</main>
+            <section className="w-full">
+              <Footer></Footer>
+            </section>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

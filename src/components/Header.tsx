@@ -3,6 +3,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
@@ -32,7 +33,7 @@ const Header = () => {
               <UserButton />
             </SignedIn>
 
-            {/* <ThemeToggle /> */}
+            <ThemeToggle />
           </div>
         </div>
       </div>
