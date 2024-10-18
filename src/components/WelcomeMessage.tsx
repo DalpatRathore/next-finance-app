@@ -15,7 +15,7 @@ const WelcomeMessage = () => {
             {user?.firstName} {user?.lastName}
           </span>
         ) : (
-          <Skeleton className="h-8 w-72 ml-1 rounded-sm" />
+          <Skeleton className="h-8 w-60 ml-1 rounded-sm" />
         )}
       </h2>
       <div className="text-sm lg:text-base text-muted-foreground flex items-center justify-start">
@@ -25,7 +25,7 @@ const WelcomeMessage = () => {
             {user?.emailAddresses[0].emailAddress}
           </p>
         ) : (
-          <Skeleton className="h-4 w-96 ml-1 rounded-sm" />
+          <Skeleton className="h-4 w-80 ml-1 rounded-sm" />
         )}
       </div>
       <p className="text-sm lg:text-base text-muted-foreground flex items-center justify-start">
