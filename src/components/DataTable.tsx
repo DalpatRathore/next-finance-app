@@ -65,23 +65,24 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex gap-x-2 items-center py-4">
         <Input
           placeholder={`Filter ${filterKey}...`}
           value={(table.getColumn(filterKey)?.getFilterValue() as string) ?? ""}
           onChange={event =>
             table.getColumn(filterKey)?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="w-full max-w-md"
         />
         {table.getFilteredSelectedRowModel().rows.length > 0 && (
           <Button
             disabled={disabled}
             size={"sm"}
             variant={"destructive"}
-            className="ml-auto font-normal text-xs"
+            className="ml-auto font-normal text-sm"
           >
-            <Trash2Icon className="size-4"></Trash2Icon>Delete (
+            <Trash2Icon className="size-4"></Trash2Icon>
+            <span className="hidden md:inline-block">Delete</span>(
             {table.getFilteredSelectedRowModel().rows.length})
           </Button>
         )}
