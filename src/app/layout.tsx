@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import QueryProviders from "@/providers/QueryClientProvider";
+import SheetProvider from "@/providers/SheetProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,10 @@ export default function RootLayout({
                 <Header></Header>
               </section>
 
-              <main className="w-full h-full">{children}</main>
+              <main className="w-full h-full">
+                <SheetProvider></SheetProvider>
+                {children}
+              </main>
               <section className="w-full">
                 <Footer></Footer>
               </section>
