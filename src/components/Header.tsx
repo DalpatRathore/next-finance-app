@@ -17,7 +17,7 @@ import Navigation from "./navigation/Navigation";
 const Header = () => {
   return (
     <header className="border-b">
-      <div className="mx-auto max-w-screen-xl p-2 md:p-4 flex items-center justify-between ">
+      <div className="mx-auto max-w-screen-2xl p-2 md:p-4 flex items-center justify-between">
         <div className="flex items-center justify-center">
           <Link href="/" className="flex items-center justify-center gap-2">
             <div className="drop-shadow-sm md:drop-shadow-lg shadow-sm border rounded-full p-1 md:p-2">
