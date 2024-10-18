@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import QueryProviders from "@/providers/QueryClientProvider";
 import SheetProvider from "@/providers/SheetProvider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,14 +35,13 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <QueryProviders>
+              <SheetProvider></SheetProvider>
+              <Toaster></Toaster>
               <section className="w-full">
                 <Header></Header>
               </section>
 
-              <main className="w-full h-full">
-                <SheetProvider></SheetProvider>
-                {children}
-              </main>
+              <main className="w-full h-full">{children}</main>
               <section className="w-full">
                 <Footer></Footer>
               </section>

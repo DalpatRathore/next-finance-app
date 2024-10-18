@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import NewAccountSheet from "@/components/forms/NewAccountSheet";
+import NewAccountSheet from "@/components/NewAccountSheet";
 import { useMountedState } from "react-use";
 
 const SheetProvider = () => {
