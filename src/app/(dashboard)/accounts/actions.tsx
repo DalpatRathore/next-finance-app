@@ -4,21 +4,67 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Edit3Icon, MoreHorizontalIcon, Trash2Icon } from "lucide-react";
 import useOpenAccount from "@/hooks/useOpenAccount";
+import { useDeleteAccount } from "@/hooks/useDeleteAccount";
 
 type ActionsProps = {
   id: string;
 };
 const Actions = ({ id }: ActionsProps) => {
   const { onOpen } = useOpenAccount();
+  const deleteMutation = useDeleteAccount(id);
+  const [isOpenDialog, setIsOpenDialog] = React.useState(false);
+  const [onConfirm, setOnConfirm] = React.useState<(() => void) | null>(null);
+
+  const isPending = deleteMutation.isPending;
+
+  const handleDelete = () => {
+    setIsOpenDialog(true);
+    setOnConfirm(() => async () => {
+      deleteMutation.mutate(undefined, {
+        onSuccess: () => {
+          setIsOpenDialog(false);
+        },
+      });
+    });
+  };
+
+  const handleCancel = () => {
+    setIsOpenDialog(false);
+  };
   return (
     <>
+      <Dialog open={isOpenDialog} onOpenChange={setIsOpenDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Do you want to delete?</DialogTitle>
+            <DialogDescription>
+              You are deleting this account transaction
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="pt-2">
+            <Button type="button" variant={"outline"} onClick={handleCancel}>
+              Cancel
+            </Button>
+            <Button type="button" onClick={onConfirm!}>
+              Confirm
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant={"outline"}>
@@ -31,7 +77,7 @@ const Actions = ({ id }: ActionsProps) => {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
 
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={handleDelete} disabled={isPending}>
             <Trash2Icon></Trash2Icon>Delete
           </DropdownMenuItem>
         </DropdownMenuContent>
