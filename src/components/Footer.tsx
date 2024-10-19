@@ -23,7 +23,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="p-3 md:p-4 border-t">
+    <footer className="p-3 md:p-4 border-t mt-5 md:mt-10">
       <div className="mx-auto max-w-screen-xl flex flex-wrap items-center justify-center gap-3">
         <TooltipWrapper text="JavaScript">
           <SiJavascript className="w-4 h-4" />

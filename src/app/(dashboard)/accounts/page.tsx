@@ -20,7 +20,7 @@ const AccountsPage = () => {
 
   if (accountsQuery.isLoading) {
     return (
-      <div className="max-w-screen-2xl mx-auto w-full p-5 lg:p-10">
+      <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
         <Card className="">
           <CardHeader className="gap-y-2 lg:flex-row lg:items-center justify-between">
             <CardTitle className="text-xl text-center line-clamp-1 text-muted-foreground">
@@ -40,7 +40,7 @@ const AccountsPage = () => {
   }
 
   return (
-    <div className="max-w-screen-2xl mx-auto w-full p-5 lg:p-10">
+    <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
       <Card className="">
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center justify-between">
           <CardTitle className="text-xl text-center line-clamp-1">
