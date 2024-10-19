@@ -1,11 +1,41 @@
 {
-  "id": "fd720d70-5578-4c20-89f8-d887c183c88b",
-  "prevId": "b7880fe6-db47-4500-97d2-128c1a68d0e2",
+  "id": "ec4c766d-098c-463a-841f-73b371357a99",
+  "prevId": "3d2e5fdd-99f6-4c48-8903-64f324f1b8ce",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
     "public.accounts": {
       "name": "accounts",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.categories": {
+      "name": "categories",
       "schema": "",
       "columns": {
         "id": {

@@ -7,5 +7,13 @@ export const accounts = pgTable("accounts", {
   name: varchar({ length: 255 }).notNull(),
   userId: varchar({ length: 255 }).notNull(),
 });
-
 export const insertAccountSchema = createInsertSchema(accounts)
+
+export const categories = pgTable("categories", {
+  // id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: uuid().primaryKey().defaultRandom(), 
+  name: varchar({ length: 255 }).notNull(),
+  userId: varchar({ length: 255 }).notNull(),
+});
+
+export const insertCategorySchema = createInsertSchema(categories)
