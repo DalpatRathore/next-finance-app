@@ -7,11 +7,16 @@ import { Loader2Icon, PlusCircleIcon } from "lucide-react";
 import { columns } from "@/app/(dashboard)/accounts/columns";
 import { useGetAccounts } from "@/hooks/useGetAccounts";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useBulkDeleteAccounts } from "@/hooks/useBulkDeleteAccounts";
 
 const AccountsPage = () => {
   const { onOpen } = useNewAccount();
+
   const accountsQuery = useGetAccounts();
   const accounts = accountsQuery.data || [];
+
+  const deleteAccounts = useBulkDeleteAccounts();
+  const isDisabled = accountsQuery.isLoading || deleteAccounts.isPending;
 
   if (accountsQuery.isLoading) {
     return (
@@ -50,8 +55,12 @@ const AccountsPage = () => {
             columns={columns}
             data={accounts}
             filterKey="email"
-            onDelete={() => {}}
-            disabled={false}
+            onDelete={row => {
+              const ids = row.map(r => r.original.id.toString());
+              console.log(typeof ids);
+              deleteAccounts.mutate({ json: { ids: ids } });
+            }}
+            disabled={isDisabled}
           />
         </CardContent>
       </Card>

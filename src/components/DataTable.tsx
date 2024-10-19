@@ -80,6 +80,10 @@ export function DataTable<TData, TValue>({
             size={"sm"}
             variant={"destructive"}
             className="ml-auto font-normal text-sm"
+            onClick={() => {
+              onDelete(table.getFilteredSelectedRowModel().rows);
+              table.resetRowSelection();
+            }}
           >
             <Trash2Icon className="size-4"></Trash2Icon>
             <span className="hidden md:inline-block">Delete</span>(

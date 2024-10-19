@@ -36,7 +36,7 @@ export default function RootLayout({
           >
             <QueryProviders>
               <SheetProvider></SheetProvider>
-              <Toaster></Toaster>
+
               <section className="w-full">
                 <Header></Header>
               </section>
@@ -47,6 +47,7 @@ export default function RootLayout({
               </section>
             </QueryProviders>
           </ThemeProvider>
+          <Toaster></Toaster>
         </body>
       </html>
     </ClerkProvider>
