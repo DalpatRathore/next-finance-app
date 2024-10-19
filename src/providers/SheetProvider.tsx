@@ -3,6 +3,7 @@
 import React from "react";
 import NewAccountSheet from "@/components/NewAccountSheet";
 import { useMountedState } from "react-use";
+import EditAccountSheet from "@/components/EditAccountSheet";
 
 const SheetProvider = () => {
   const isMounted = useMountedState();
@@ -12,6 +13,7 @@ const SheetProvider = () => {
   return (
     <>
       <NewAccountSheet></NewAccountSheet>
+      <EditAccountSheet></EditAccountSheet>
     </>
   );
 };

@@ -97,11 +97,11 @@ export function DataTable<TData, TValue>({
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="pt-2">
-            <Button type="button" onClick={onConfirm!}>
-              Confirm
-            </Button>
             <Button type="button" variant={"outline"} onClick={handleCancel}>
               Cancel
+            </Button>
+            <Button type="button" onClick={onConfirm!}>
+              Confirm
             </Button>
           </DialogFooter>
         </DialogContent>

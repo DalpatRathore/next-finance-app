@@ -10,7 +10,6 @@ export const useBulkDeleteAccounts = () =>{
     const queryClient = useQueryClient();
     const mutation = useMutation<ResponseType, Error, RequestType>({
         mutationFn: async (json) => {
-            console.log("Request data:", json);
             const response = await client.api.accounts["bulk-delete"]["$post"](json);
             
             // Check if the response is not OK
