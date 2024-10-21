@@ -21,14 +21,11 @@ const NewCategorySheet = () => {
 
   const onSubmit = async (values: FormValues) => {
     // console.log(values);
-    mutation.mutate(
-      { json: values },
-      {
-        onSuccess: () => {
-          onClose();
-        },
-      }
-    );
+    mutation.mutate(values, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
   };
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
