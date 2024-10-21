@@ -2,12 +2,12 @@
 import { DataTable } from "@/components/DataTable";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import useNewAccount from "@/hooks/useNewAccount";
+import useNewAccount from "@/hooks/accounts/useNewAccount";
 import { Loader2Icon, PlusCircleIcon } from "lucide-react";
 import { columns } from "@/app/(dashboard)/accounts/columns";
-import { useGetAccounts } from "@/hooks/useGetAccounts";
+import { useGetAccounts } from "@/hooks/accounts/useGetAccounts";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useBulkDeleteAccounts } from "@/hooks/useBulkDeleteAccounts";
+import { useBulkDeleteAccounts } from "@/hooks/accounts/useBulkDeleteAccounts";
 
 const AccountsPage = () => {
   const { onOpen } = useNewAccount();

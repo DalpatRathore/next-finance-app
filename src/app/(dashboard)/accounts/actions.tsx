@@ -17,8 +17,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Edit3Icon, MoreHorizontalIcon, Trash2Icon } from "lucide-react";
-import useOpenAccount from "@/hooks/useOpenAccount";
-import { useDeleteAccount } from "@/hooks/useDeleteAccount";
+import useOpenAccount from "@/hooks/accounts/useOpenAccount";
+import { useDeleteAccount } from "@/hooks/accounts/useDeleteAccount";
 
 type ActionsProps = {
   id: string;

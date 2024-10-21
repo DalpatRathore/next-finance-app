@@ -2,11 +2,11 @@
 
 import React from "react";
 import { useMountedState } from "react-use";
-import NewAccountSheet from "@/components/NewAccountSheet";
-import EditAccountSheet from "@/components/EditAccountSheet";
+import NewAccountSheet from "@/components/sheets/NewAccountSheet";
+import EditAccountSheet from "@/components/sheets/EditAccountSheet";
 
-import NewCategorySheet from "@/components/NewCategorySheet";
-import EditCategorySheet from "@/components/EditCategorySheet";
+import NewCategorySheet from "@/components/sheets/NewCategorySheet";
+import EditCategorySheet from "@/components/sheets/EditCategorySheet";
 
 const SheetProvider = () => {
   const isMounted = useMountedState();

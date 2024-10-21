@@ -5,14 +5,14 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import useOpenAccount from "@/hooks/useOpenAccount";
-import AccountForm from "./forms/AccountForm";
+import useOpenAccount from "@/hooks/accounts/useOpenAccount";
+import AccountForm from "../forms/AccountForm";
 import { insertAccountSchema } from "@/db/schema";
 import { z } from "zod";
-import { useGetAccount } from "@/hooks/useGetAccount";
+import { useGetAccount } from "@/hooks/accounts/useGetAccount";
 import { Loader2Icon } from "lucide-react";
-import { useEditAccount } from "@/hooks/useEditAccount";
-import { useDeleteAccount } from "@/hooks/useDeleteAccount";
+import { useEditAccount } from "@/hooks/accounts/useEditAccount";
+import { useDeleteAccount } from "@/hooks/accounts/useDeleteAccount";
 import {
   Dialog,
   DialogContent,
@@ -20,9 +20,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
+} from "../ui/dialog";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const formSchema = insertAccountSchema.pick({
   name: true,

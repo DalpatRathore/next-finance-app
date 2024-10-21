@@ -6,7 +6,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import useOpenCategory from "@/hooks/categories/useOpenCategory";
-import CategoryForm from "./forms/CategoryForm";
+import CategoryForm from "../forms/CategoryForm";
 import { insertCategorySchema } from "@/db/schema";
 import { z } from "zod";
 import { useGetCategory } from "@/hooks/categories/useGetCategory";
@@ -20,9 +20,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
+} from "../ui/dialog";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const formSchema = insertCategorySchema.pick({
   name: true,
