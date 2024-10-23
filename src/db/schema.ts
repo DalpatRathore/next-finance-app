@@ -35,7 +35,7 @@ export const transactions = pgTable("transactions", {
   amount: integer().notNull(),
   payee: varchar({ length: 255 }).notNull(),
   notes: varchar({ length: 255 }),
-  date: timestamp({ mode: 'string' }).notNull(),
+  date: timestamp({ mode: 'date' }).notNull(),
   accountId: uuid('account_id').references(() => accounts.id,{ onDelete:"cascade"}).notNull(),
   categoryId: uuid('category_id').references(() => categories.id,{ onDelete:"set null"}),
 
