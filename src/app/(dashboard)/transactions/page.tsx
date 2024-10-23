@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useBulkDeleteTransactions } from "@/hooks/transactions/useBulkDeleteTransactions";
 
 const TransactionsPage = () => {
-  const { onOpen } = useNewTransaction();
+  const newTransaction = useNewTransaction();
 
   const transactionsQuery = useGetTransactions();
   const transactions = transactionsQuery.data || [];
@@ -47,22 +47,21 @@ const TransactionsPage = () => {
           <CardTitle className="text-xl text-center line-clamp-1">
             Transactions History
           </CardTitle>
-          <Button onClick={onOpen}>
+          <Button onClick={newTransaction.onOpen}>
             <PlusCircleIcon className="size-4" /> Add New
           </Button>
         </CardHeader>
         <CardContent>
-          {/* <DataTable
+          <DataTable
             columns={columns}
             data={transactions}
             filterKey="name"
             onDelete={row => {
               const ids = row.map(r => r.original.id.toString());
-              console.log(typeof ids);
               deleteTransactions.mutate({ json: { ids: ids } });
             }}
             disabled={isDisabled}
-          /> */}
+          />
         </CardContent>
       </Card>
     </div>
