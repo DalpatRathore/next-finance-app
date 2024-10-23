@@ -17,15 +17,15 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Edit3Icon, MoreHorizontalIcon, Trash2Icon } from "lucide-react";
-import useOpenAccount from "@/hooks/accounts/useOpenAccount";
-import { useDeleteAccount } from "@/hooks/accounts/useDeleteAccount";
+import useOpenTransaction from "@/hooks/transactions/useOpenTransaction";
+import { useDeleteTransaction } from "@/hooks/transactions/useDeleteTransaction";
 
 type ActionsProps = {
   id: string;
 };
 const Actions = ({ id }: ActionsProps) => {
-  const { onOpen } = useOpenAccount();
-  const deleteMutation = useDeleteAccount(id);
+  const { onOpen } = useOpenTransaction();
+  const deleteMutation = useDeleteTransaction(id);
   const [isOpenDialog, setIsOpenDialog] = React.useState(false);
   const [onConfirm, setOnConfirm] = React.useState<(() => void) | null>(null);
 
@@ -52,7 +52,7 @@ const Actions = ({ id }: ActionsProps) => {
           <DialogHeader>
             <DialogTitle>Do you want to delete?</DialogTitle>
             <DialogDescription>
-              You are deleting this account transaction
+              You are deleting this transaction
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="pt-2">
