@@ -8,14 +8,17 @@ type UploadButtonProps = {
   onUpload: (results: any) => void;
 };
 const UploadButton = ({ onUpload }: UploadButtonProps) => {
-  console.log({ onUpload });
   const { CSVReader } = useCSVReader();
   //   TODO:
 
   return (
     <CSVReader onUploadAccepted={onUpload}>
       {({ getRootProps }: any) => (
-        <Button {...getRootProps()}>
+        <Button
+          {...getRootProps()}
+          className="w-full lg:w-auto"
+          variant={"outline"}
+        >
           <ImportIcon className="size-4 mr-2" />
           Import
         </Button>

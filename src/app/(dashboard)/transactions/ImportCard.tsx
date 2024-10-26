@@ -41,15 +41,30 @@ const ImportCard = ({ data, onCancel, onSubmit }: ImportCardProps) => {
       return newSelectedColumns;
     });
   };
+
+  const progress = Object.values(selectedColumn).filter(Boolean).length;
+
   return (
     <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
-      <Card className="">
+      <Card>
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center justify-between">
           <CardTitle className="text-xl text-center line-clamp-1">
             Import Transactions
           </CardTitle>
-          <div className="flex items-center justify-center gap-x-2">
-            <Button onClick={onCancel}>Cancel</Button>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
+            <Button
+              onClick={onCancel}
+              variant={"outline"}
+              className="w-full lg:w-auto"
+            >
+              Cancel
+            </Button>
+            <Button
+              disabled={progress < requiredOptions.length}
+              className="w-full lg:w-auto"
+            >
+              Continue ({progress}/{requiredOptions.length})
+            </Button>
           </div>
         </CardHeader>
         <CardContent>

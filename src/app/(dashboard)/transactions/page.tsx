@@ -81,13 +81,16 @@ const TransactionsPage = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
-      <Card className="">
+      <Card>
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center justify-between">
           <CardTitle className="text-xl text-center line-clamp-1">
             Transactions History
           </CardTitle>
-          <div className="flex items-center justify-center gap-x-2">
-            <Button onClick={newTransaction.onOpen}>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
+            <Button
+              onClick={newTransaction.onOpen}
+              className="w-full lg:w-auto"
+            >
               <PlusCircleIcon className="size-4" /> Add New
             </Button>
             <UploadButton onUpload={onUpload}></UploadButton>
