@@ -8,8 +8,35 @@ import { columns } from "@/app/(dashboard)/transactions/columns";
 import { useGetTransactions } from "@/hooks/transactions/useGetTransactions";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBulkDeleteTransactions } from "@/hooks/transactions/useBulkDeleteTransactions";
+import { useState } from "react";
+import UploadButton from "./UploadButton";
+import ImportCard from "./ImportCard";
+
+enum VARIANTS {
+  LIST = "LIST",
+  IMPORT = "IMPORT",
+}
+const INITIAL_IMPORT_RESULTS = {
+  data: [],
+  errors: [],
+  meta: {},
+};
 
 const TransactionsPage = () => {
+  const [variants, setVariants] = useState<VARIANTS>(VARIANTS.LIST);
+  const [importedResults, setImportedResults] = useState(
+    INITIAL_IMPORT_RESULTS
+  );
+  const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
+    // console.log(results);
+    setImportedResults(results);
+    setVariants(VARIANTS.IMPORT);
+  };
+
+  const onCancelImport = () => {
+    setImportedResults(INITIAL_IMPORT_RESULTS);
+    setVariants(VARIANTS.LIST);
+  };
   const newTransaction = useNewTransaction();
 
   const transactionsQuery = useGetTransactions();
@@ -40,6 +67,18 @@ const TransactionsPage = () => {
     );
   }
 
+  if (variants === VARIANTS.IMPORT) {
+    return (
+      <>
+        <ImportCard
+          onCancel={onCancelImport}
+          onSubmit={() => {}}
+          data={importedResults.data}
+        ></ImportCard>
+      </>
+    );
+  }
+
   return (
     <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
       <Card className="">
@@ -47,9 +86,12 @@ const TransactionsPage = () => {
           <CardTitle className="text-xl text-center line-clamp-1">
             Transactions History
           </CardTitle>
-          <Button onClick={newTransaction.onOpen}>
-            <PlusCircleIcon className="size-4" /> Add New
-          </Button>
+          <div className="flex items-center justify-center gap-x-2">
+            <Button onClick={newTransaction.onOpen}>
+              <PlusCircleIcon className="size-4" /> Add New
+            </Button>
+            <UploadButton onUpload={onUpload}></UploadButton>
+          </div>
         </CardHeader>
         <CardContent>
           <DataTable

@@ -1,0 +1,26 @@
+Date,Payee,Amount,Category,Transaction Type,Notes
+2024-01-02,Amazon,-50.25,Shopping,Debit,Purchase on Amazon
+2024-01-03,Uber,-15.50,Transport,Debit,Ride to downtown
+2024-01-05,Starbucks,-5.75,Food & Drink,Debit,Coffee
+2024-01-06,Netflix,-12.99,Entertainment,Debit,Monthly subscription
+2024-01-07,Salary,2000.00,Income,Credit,Monthly salary
+2024-01-08,Walmart,-30.20,Grocery,Debit,Grocery shopping
+2024-01-09,Spotify,-9.99,Entertainment,Debit,Monthly subscription
+2024-01-10,Apple Store,-99.99,Electronics,Debit,Headphones purchase
+2024-01-11,Rent,-800.00,Housing,Debit,Monthly rent
+2024-01-12,McDonald's,-8.65,Food & Drink,Debit,Fast food meal
+2024-01-13,Gas Station,-40.00,Transport,Debit,Fuel for car
+2024-01-14,Electric Bill,-60.75,Utilities,Debit,Electricity payment
+2024-01-15,Water Bill,-20.00,Utilities,Debit,Monthly water bill
+2024-01-16,Gym Membership,-45.00,Fitness,Debit,Monthly membership
+2024-01-17,Salary,2000.00,Income,Credit,Bonus payment
+2024-01-18,Target,-75.40,Shopping,Debit,Clothing purchase
+2024-01-19,Phone Bill,-35.00,Utilities,Debit,Monthly phone bill
+2024-01-20,Grocery Store,-150.00,Grocery,Debit,Weekly groceries
+2024-01-21,Spotify,-9.99,Entertainment,Debit,Monthly subscription
+2024-01-22,Cinema,-25.00,Entertainment,Debit,Movie night
+2024-01-23,Salary,2000.00,Income,Credit,Salary payment
+2024-01-24,Internet Bill,-40.00,Utilities,Debit,Monthly internet
+2024-01-25,Coffee Shop,-4.20,Food & Drink,Debit,Latte
+2024-01-26,Amazon,-80.55,Shopping,Debit,Online shopping
+2024-01-27,Insurance,-150.00,Insurance,Debit,Monthly premium

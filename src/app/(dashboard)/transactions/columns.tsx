@@ -10,7 +10,7 @@ import Actions from "./actions";
 import { format } from "date-fns";
 import { formatCurrency } from "@/lib/amountUtil";
 import { Badge } from "@/components/ui/badge";
-import AccountColumn from "./accountColumn";
+import AccountColumn from "./AccountColumn";
 import CategoryColumn from "./CatrgoryColumn";
 
 export type ResponseType = InferResponseType<
