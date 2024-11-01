@@ -41,7 +41,7 @@ export default function RootLayout({
                 <Header></Header>
               </section>
 
-              <main className="w-full h-full">{children}</main>
+              <main className="w-full h-full overflow-hidden">{children}</main>
               <section className="w-full">
                 <Footer></Footer>
               </section>

@@ -11,6 +11,7 @@ import { useBulkDeleteTransactions } from "@/hooks/transactions/useBulkDeleteTra
 import { useState } from "react";
 import UploadButton from "./UploadButton";
 import ImportCard from "./ImportCard";
+import { transactions as transactionSchema } from "@/db/schema";
 
 enum VARIANTS {
   LIST = "LIST",
@@ -46,6 +47,10 @@ const TransactionsPage = () => {
   const isDisabled =
     transactionsQuery.isLoading || deleteTransactions.isPending;
 
+  const onSubmitImport = async (
+    values: (typeof transactionSchema.$inferInsert)[]
+  ) => {};
+
   if (transactionsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full px-5 lg:px-10">
@@ -72,7 +77,7 @@ const TransactionsPage = () => {
       <>
         <ImportCard
           onCancel={onCancelImport}
-          onSubmit={() => {}}
+          onSubmit={onSubmitImport}
           data={importedResults.data}
         ></ImportCard>
       </>
