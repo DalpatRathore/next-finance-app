@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  Bar,
-  BarChart,
+  Line,
+  LineChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
@@ -10,7 +10,7 @@ import {
 import CustomToolTip from "./CustomToolTip";
 import { format } from "date-fns";
 
-type BarVariantProps = {
+type LineVariantProps = {
   data: {
     date: string;
     income: number;
@@ -18,10 +18,10 @@ type BarVariantProps = {
   }[];
 };
 
-const BarVariant = ({ data }: BarVariantProps) => {
+const LineVariant = ({ data }: LineVariantProps) => {
   return (
     <ResponsiveContainer width={"100%"} height={350}>
-      <BarChart data={data}>
+      <LineChart data={data}>
         <CartesianGrid strokeDasharray={"3 3"}></CartesianGrid>
         <XAxis
           axisLine={false}
@@ -32,15 +32,22 @@ const BarVariant = ({ data }: BarVariantProps) => {
           tickMargin={16}
         ></XAxis>
         <Tooltip content={<CustomToolTip />} />
-        <Bar dataKey={"income"} fill="#3d82f6" className="drop-shadow-sm"></Bar>
-        <Bar
-          dataKey={"expenses"}
-          fill="#f43f5e"
+        <Line
+          // dot={false}
+          dataKey={"income"}
+          strokeWidth={2}
+          stroke="#3d82f6"
           className="drop-shadow-sm"
-        ></Bar>
-      </BarChart>
+        ></Line>
+        <Line
+          dataKey={"expenses"}
+          stroke="#f43f5e"
+          strokeWidth={2}
+          className="drop-shadow-sm"
+        ></Line>
+      </LineChart>
     </ResponsiveContainer>
   );
 };
 
-export default BarVariant;
+export default LineVariant;
