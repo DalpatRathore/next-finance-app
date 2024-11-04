@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -6,10 +6,22 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FileSearch2Icon } from "lucide-react";
+import {
+  AreaChartIcon,
+  BarChart2Icon,
+  FileSearch2Icon,
+  LineChartIcon,
+} from "lucide-react";
 import AreaVariant from "./AreaVariant";
 import BarVariant from "./BarVariant";
 import LineVariant from "./LineVariant";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 type ChartProps = {
   data?: {
@@ -19,10 +31,40 @@ type ChartProps = {
   }[];
 };
 const Chart = ({ data = [] }: ChartProps) => {
+  const [chartType, setChartType] = useState("area");
+
+  const onChartTypeChange = (type: string) => {
+    setChartType(type);
+  };
   return (
     <Card className="drop-shadow-sm">
       <CardHeader className="flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center justify-between">
         <CardTitle className="text-xl line-clamp-1">Transactions</CardTitle>
+        <Select defaultValue={chartType} onValueChange={onChartTypeChange}>
+          <SelectTrigger className="lg:w-auto h-9 rounded-md px-3">
+            <SelectValue placeholder="Chart Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="area">
+              <div className="flex items-center">
+                <AreaChartIcon className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Area Chart</p>
+              </div>
+            </SelectItem>
+            <SelectItem value="line">
+              <div className="flex items-center">
+                <LineChartIcon className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Line Chart</p>
+              </div>
+            </SelectItem>
+            <SelectItem value="bar">
+              <div className="flex items-center">
+                <BarChart2Icon className="size-4 mr-2 shrink-0" />
+                <p className="line-clamp-1">Bar Chart</p>
+              </div>
+            </SelectItem>
+          </SelectContent>
+        </Select>
       </CardHeader>
       <CardContent>
         {data.length === 0 ? (
@@ -34,9 +76,9 @@ const Chart = ({ data = [] }: ChartProps) => {
           </div>
         ) : (
           <>
-            <AreaVariant data={data}></AreaVariant>
-            <BarVariant data={data}></BarVariant>
-            <LineVariant data={data}></LineVariant>
+            {chartType === "area" && <AreaVariant data={data}></AreaVariant>}
+            {chartType === "bar" && <BarVariant data={data}></BarVariant>}
+            {chartType === "line" && <LineVariant data={data}></LineVariant>}
           </>
         )}
       </CardContent>
