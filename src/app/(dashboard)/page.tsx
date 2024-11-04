@@ -1,9 +1,9 @@
-import WelcomeMessage from "@/components/WelcomeMessage";
+import DataGrid from "@/components/DataGrid";
 
-export default function Home() {
+export default function DashboardPage() {
   return (
-    <section className="flex h-full items-center justify-center">
-      <h1>Dalpat Rathore</h1>
-    </section>
+    <div className="max-w-screen-2xl mx-auto w-full pb-5 px-5 lg:px-10 lg:pb-10">
+      <DataGrid></DataGrid>
+    </div>
   );
 }
