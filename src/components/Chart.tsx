@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { FileSearch2Icon } from "lucide-react";
 import AreaVariant from "./AreaVariant";
+import BarVariant from "./BarVariant";
 
 type ChartProps = {
   data?: {
@@ -31,7 +32,10 @@ const Chart = ({ data = [] }: ChartProps) => {
             </p>
           </div>
         ) : (
-          <AreaVariant data={data}></AreaVariant>
+          <>
+            <AreaVariant data={data}></AreaVariant>
+            <BarVariant data={data}></BarVariant>
+          </>
         )}
       </CardContent>
     </Card>
