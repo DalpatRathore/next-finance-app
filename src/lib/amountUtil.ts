@@ -16,7 +16,8 @@ export const formatCurrency=(value:number)=>{
 }
 
 export const calculatePercentChange =(current:number, previous:number)=>{
-    if(previous===0){
+    // console.log(((current-previous)/previous)*100)
+    if(previous === 0){
         return previous===current ?0 :100;
     }
 
