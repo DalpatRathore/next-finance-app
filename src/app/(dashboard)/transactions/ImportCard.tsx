@@ -75,6 +75,8 @@ const ImportCard = ({ data, onCancel, onSubmit }: ImportCardProps) => {
         return acc;
       }, {});
     });
+
+    // console.log(arrayofData);
     const formattedData = arrayofData.map(item => ({
       ...item,
       amount: convertAmountToMiliUnits(parseFloat(item.amount)),
