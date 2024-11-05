@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileSearch2Icon, PieChartIcon, Radar, TargetIcon } from "lucide-react";
+import {
+  FileSearch2Icon,
+  Loader2Icon,
+  PieChartIcon,
+  Radar,
+  TargetIcon,
+} from "lucide-react";
 
 import {
   Select,
@@ -12,6 +18,7 @@ import {
 import PieVariant from "./PieVariant";
 import RadarVariant from "./RadarVariants";
 import RadialVariant from "./RadialVariant";
+import { Skeleton } from "./ui/skeleton";
 
 type SpendingPieProps = {
   data?: {
@@ -76,5 +83,19 @@ const SpendingPie = ({ data = [] }: SpendingPieProps) => {
     </Card>
   );
 };
-
+export const SpendingPieLoading = () => {
+  return (
+    <Card className="drop-shadow-sm">
+      <CardHeader className="flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center justify-between">
+        <Skeleton className="w-48 h-8" />
+        <Skeleton className="w-full lg:w-[120px] h-8" />
+      </CardHeader>
+      <CardContent>
+        <div className="h-[350px] w-full flex items-center justify-center">
+          <Loader2Icon className="size-6 text-slate-300 animate-spin"></Loader2Icon>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 export default SpendingPie;
