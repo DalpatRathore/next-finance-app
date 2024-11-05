@@ -11,6 +11,7 @@ import {
 } from "./ui/select";
 import PieVariant from "./PieVariant";
 import RadarVariant from "./RadarVariants";
+import RadialVariant from "./RadialVariant";
 
 type SpendingPieProps = {
   data?: {
@@ -66,7 +67,9 @@ const SpendingPie = ({ data = [] }: SpendingPieProps) => {
           <>
             {chartType === "pie" && <PieVariant data={data}></PieVariant>}
             {chartType === "radar" && <RadarVariant data={data}></RadarVariant>}
-            {/* {chartType === "radial" && <LineVariant data={data}></LineVariant>} */}
+            {chartType === "radial" && (
+              <RadialVariant data={data}></RadialVariant>
+            )}
           </>
         )}
       </CardContent>
