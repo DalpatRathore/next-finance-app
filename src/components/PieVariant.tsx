@@ -7,19 +7,17 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import CustomToolTip from "./CustomToolTip";
-import { format } from "date-fns";
 import { formatPercentage } from "@/lib/amountUtil";
 import CategoryToolTip from "./CategoryToolTip";
 
-type BarVariantProps = {
+type PieVariantProps = {
   data: {
     name: string;
     value: number;
   }[];
 };
 const COLORS = ["#0062ff", "#12c6ff", "#ff647f", "#ff9354"];
-const PieVariant = ({ data }: BarVariantProps) => {
+const PieVariant = ({ data = [] }: PieVariantProps) => {
   return (
     <ResponsiveContainer width={"100%"} height={350}>
       <PieChart>
